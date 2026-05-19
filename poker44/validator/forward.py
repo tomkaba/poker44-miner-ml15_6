@@ -787,8 +787,8 @@ def _log_miner_vs_expected(
                     f"idx={i} route={expected_routes[i]} actual={actual:.6f} expected={expected:.6f} diff={diff:.6f}"
                 )
 
-        actual_pred = actual >= 0.5
-        expected_pred = expected >= 0.5
+        actual_pred = actual >= 0.01
+        expected_pred = expected >= 0.01
         if actual_pred != expected_pred:
             pred_mismatch += 1
 

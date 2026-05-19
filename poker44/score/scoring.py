@@ -10,7 +10,7 @@ def reward(y_pred: np.ndarray, y_true: np.ndarray) -> tuple[float, dict]:
     """
     Compute a reward that strongly protects humans while still rewarding bot recall.
     """
-    preds = np.round(y_pred).astype(int)
+    preds = (y_pred >= 0.01).astype(int)
     cm = confusion_matrix(y_true, preds, labels=[0, 1])
     tn, fp, fn, tp = cm.ravel()
 
